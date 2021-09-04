@@ -46,6 +46,7 @@ const stop_int=()=>{
 }
 
 const jump = (stop_anim)=>{
+    document.getElementById('arrow').style.animation="shoot 0.8s linear";
     document.getElementById('runner').style.animation="jmp 0.8s linear";
     setTimeout(stop_anim,800)
     
@@ -54,6 +55,7 @@ const jump = (stop_anim)=>{
 
 const stop_anim = ()=>{
     document.getElementById('runner').style.animation="";
+    document.getElementById('arrow').style.animation="";
 
 }
 
@@ -62,5 +64,14 @@ const speed_inc = ()=>{
     let car_left = parseInt(window.getComputedStyle(car,null).getPropertyValue('left'));
     let new_position = car_left + 10;
     car.style.left = new_position+"px";
+
+}
+
+const fire = ()=>{
+    document.getElementById('shootarrow').style.animation="shoot_me 0.4s linear";
+    setTimeout(stop_shoot,400)
+}
+const stop_shoot = ()=>{
+    document.getElementById('shootarrow').style.animation="";
 
 }

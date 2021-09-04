@@ -32,7 +32,7 @@
             left: 200px;
             background-image: linear-gradient(90deg,green,white);
             position: absolute;
-            z-index: 1;
+            z-index: 1000;
             box-shadow: -2px  3px 10px grey;
             border-top-right-radius: 15px;
            
@@ -143,9 +143,75 @@
             height: 100%;
             opacity: 0;
         }
+        .arrow{
+            width: 25px;
+            height: 4px;
+            background-color: yellow;
+            position: absolute;
+            bottom: 130px;
+            z-index: 1;
+            left: 210px;
+            visibility: hidden;
+            border: 1px solid red;
+            box-shadow: -1px 1px 1px red;
+        }
+
+        @keyframes shoot {
+            0%{
+                /* left: 210px; */
+                visibility: hidden;
+                
+
+            }
+            40%{
+                visibility: hidden;
+            }
+            70%{
+                left: 210px;
+                visibility: visible;
+            }
+            100%{
+                left: 700px;
+                
+            }
+        }
+        .shootarrow{
+            width: 25px;
+            height: 4px;
+            background-color: yellow;
+            position: absolute;
+            bottom: 20px;
+            z-index: 1;
+            left: 210px;
+            visibility: hidden;
+            border: 1px solid red;
+            box-shadow: -1px 1px 1px red;
+        }
+        @keyframes shoot_me {
+            0%{
+                /* left: 210px; */
+                visibility: visible;
+                left: 210px;
+                
+
+            }
+            /* 40%{
+                visibility: hidden;
+            }
+            70%{
+                left: 210px;
+                visibility: visible;
+            } */
+            100%{
+                left: 800px;
+                
+            }
+        }
     </style>
 </head>
 <body>
+
+    <!-- //two modes run mode and jump mode -->
 
     <div class="title">
         <div><h3>score: <span id="score">0</span></h3></div>
@@ -154,6 +220,8 @@
     </div>
     <div id="playg" class="playGround">
 
+        <div id="arrow" class="arrow"></div>
+        <div class="shootarrow" id="shootarrow"></div>
         <div id="runner" class="runner"><div class="e1"></div>
         <div class="e2"></div><div class="e3"></div></div>
 
@@ -165,7 +233,7 @@
             <div class="obstacle1"></div>
             <div class="obstacle2"></div>
         </div>
-        <div class="speed_button"></div>
+        <div class="speed_button" onclick="fire()"></div>
         <div class="jump_button" onclick="jump(stop_anim)"></div>
 
     </div>
